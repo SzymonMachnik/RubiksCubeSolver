@@ -197,62 +197,222 @@ void move_D_prim(unordered_map<char, vector<vector<char>>> &cube) {
 }
 
 
+void solveWhiteGreenEdge(unordered_map<char, vector<vector<char>>> &cube, char secondEdge) {
+  // FIND WhiteGreenEdge
+  // cout << "White edge on " << << << " edge on " << << endl;
+  // White on down layer facing down
+  if (cube['F'][2][1] == secondEdge && cube['D'][0][1] == 'W') {
+    cout << "White edge on " << "D" << secondEdge << " edge on " << "F" << endl;
+
+  } else if (cube['R'][2][1] == secondEdge && cube['D'][1][2] == 'W') {
+    cout << "White edge on " << "D" << secondEdge << " edge on " << "R" << endl;
+
+  } else if (cube['B'][2][1] == secondEdge && cube['D'][2][1] == 'W') {
+    cout << "White edge on " << "D" << secondEdge << " edge on " << "B" << endl;
+
+  } else if (cube['L'][2][1] == secondEdge && cube['D'][1][0] == 'W') {
+    cout << "White edge on " << "D" << secondEdge << " edge on " << "L" << endl;
+  }
+  // White on down layer facing side
+    else if (cube['F'][2][1] == 'W' && cube['D'][0][1] == secondEdge) {
+    cout << "White edge on " << "F" << secondEdge << " edge on " << "D" << endl;
+
+  } else if (cube['R'][2][1] == 'W' && cube['D'][1][2] == secondEdge) {
+    cout << "White edge on " << "R" << secondEdge << " edge on " << "D" << endl;
+
+  } else if (cube['B'][2][1] == 'W' && cube['D'][2][1] == secondEdge) {
+    cout << "White edge on " << "B" << secondEdge << " edge on " << "D" << endl;
+
+  } else if (cube['L'][2][1] == 'W' && cube['D'][1][0] == secondEdge) {
+    cout << "White edge on " << "L" << secondEdge << " edge on " << "D" << endl;
+  }
+  // White on middle layer
+    else if (cube['F'][1][2] == 'W' && cube['R'][1][0] == secondEdge) {
+    cout << "White edge on " << "F" << secondEdge << " edge on " << "R" << endl;
+
+  } else if (cube['F'][1][2] == secondEdge && cube['R'][1][0] == 'W') {
+    cout << "White edge on " << "R" << secondEdge << " edge on " << "F" << endl;
+
+  } else if (cube['R'][1][2] == 'W' && cube['B'][1][0] == secondEdge) {
+    cout << "White edge on " << "R" << secondEdge << " edge on " << "B" << endl;
+
+  } else if (cube['R'][1][2] == secondEdge && cube['B'][1][0] == 'W') {
+    cout << "White edge on " << "B" << secondEdge << " edge on " << "R" << endl;
+
+  } else if (cube['B'][1][2] == 'W' && cube['L'][1][0] == secondEdge) {
+    cout << "White edge on " << "B" << secondEdge << " edge on " << "L" << endl;
+
+  } else if (cube['B'][1][2] == secondEdge && cube['L'][1][0] == 'W') {
+    cout << "White edge on " << "L" << secondEdge << " edge on " << "B" << endl;
+
+  } else if (cube['L'][1][2] == 'W' && cube['F'][1][0] == secondEdge) {
+    cout << "White edge on " << "L" << secondEdge << " edge on " << "F" << endl;
+    
+  } else if (cube['L'][1][2] == secondEdge && cube['F'][1][0] == 'W') {
+    cout << "White edge on " << "F" << secondEdge << " edge on " << "L" << endl;
+    
+  }
+  // White on up layer facing side
+    else if (cube['F'][0][1] == 'W' && cube['U'][2][1] == secondEdge) {
+    cout << "White edge on " << "F" << secondEdge << " edge on " << "U" << endl;
+     
+  } else if (cube['R'][0][1] == 'W' && cube['U'][1][2] == secondEdge) {
+    cout << "White edge on " << "R" << secondEdge << " edge on " << "U" << endl;
+ 
+  } else if (cube['B'][0][1] == 'W' && cube['U'][0][1] == secondEdge) {
+    cout << "White edge on " << "B" << secondEdge << " edge on " << "U" << endl;
+ 
+  } else if (cube['L'][0][1] == 'W' && cube['U'][1][0] == secondEdge) {
+    cout << "White edge on " << "L" << secondEdge << " edge on " << "U" << endl;
+ 
+  } 
+  // White on up layer facing up
+    else if (cube['F'][0][1] == secondEdge && cube['U'][2][1] == 'W') {
+    cout << "White edge on " << "U" << secondEdge << " edge on " << "F" << endl;
+     
+  } else if (cube['R'][0][1] == secondEdge && cube['U'][1][2] == 'W') {
+    cout << "White edge on " << "U" << secondEdge << " edge on " << "R" << endl;
+ 
+  } else if (cube['B'][0][1] == secondEdge && cube['U'][0][1] == 'W') {
+    cout << "White edge on " << "U" << secondEdge << " edge on " << "B" << endl;
+ 
+  } else if (cube['L'][0][1] == secondEdge && cube['U'][1][0] == 'W') {
+    cout << "White edge on " << "U" << secondEdge << " edge on " << "L" << endl;
+ 
+  }
+}
+
+void solveCross(unordered_map<char, vector<vector<char>>> &cube) {
+  solveWhiteGreenEdge(cube, 'G');
+}
+
+
 int main() {
 
   unordered_map<char, vector<vector<char>>> cube = {
-    {'U', {{'W', 'W', 'W'}, 
-           {'W', 'W', 'W'}, 
-           {'W', 'W', 'W'}}},
+    {'U', {{'Y', 'Y', 'Y'}, 
+           {'Y', 'Y', 'Y'}, 
+           {'Y', 'Y', 'Y'}}},
 
-    {'L', {{'O', 'O', 'O'}, 
-           {'O', 'O', 'O'}, 
-           {'O', 'O', 'O'}}},
+    {'L', {{'R', 'R', 'R'}, 
+           {'R', 'R', 'R'}, 
+           {'R', 'R', 'R'}}},
 
     {'F', {{'G', 'G', 'G'}, 
            {'G', 'G', 'G'}, 
            {'G', 'G', 'G'}}},
 
-    {'R', {{'R', 'R', 'R'}, 
-           {'R', 'R', 'R'}, 
-           {'R', 'R', 'R'}}},
+    {'R', {{'O', 'O', 'O'}, 
+           {'O', 'O', 'O'}, 
+           {'O', 'O', 'O'}}},
 
     {'B', {{'B', 'B', 'B'}, 
            {'B', 'B', 'B'}, 
            {'B', 'B', 'B'}}},
 
-    {'D', {{'Y', 'Y', 'Y'}, 
-           {'Y', 'Y', 'Y'}, 
-           {'Y', 'Y', 'Y'}}}
+    {'D', {{'W', 'W', 'W'}, 
+           {'W', 'W', 'W'}, 
+           {'W', 'W', 'W'}}}
   };
-  
-  
-  move_L_prim(cube);
-  move_D(cube);
-  move_B_prim(cube);
-  move_U(cube);
-  move_U(cube);
-  move_R(cube);
-  move_U_prim(cube);
-  move_B(cube);
-  move_R_prim(cube);
-  move_U(cube);
-  move_U(cube);
-  move_F(cube);
-  move_F(cube);
-  move_U(cube);
-  move_U(cube);
-  move_R(cube);
-  move_R(cube);
-  move_F(cube);
-  move_F(cube);
-  move_R(cube);
-  move_B(cube);
-  move_B(cube);
-  move_R(cube);
-  move_B_prim(cube);
-  
+    
 
+
+  // Around front
   printCube(cube);
+
+  move_F(cube);
+  solveCross(cube);
+
+  move_F(cube);
+  solveCross(cube);
+
+  move_F(cube);
+  solveCross(cube);
+
+  move_F(cube);
+  solveCross(cube);
+
+  // Around right
+  move_D(cube);
+  printCube(cube);
+
+  move_R(cube);
+  solveCross(cube);
+
+  move_R(cube);
+  solveCross(cube);
+
+  move_R(cube);
+  solveCross(cube);
+
+  move_R(cube);
+  solveCross(cube);
+
+  // Around back
+  move_D(cube);
+  printCube(cube);
+
+  move_B(cube);
+  solveCross(cube);
+
+  move_B(cube);
+  solveCross(cube);
+
+  move_B(cube);
+  solveCross(cube);
+
+  move_B(cube);
+  solveCross(cube);
+
+  // Around left
+  move_D(cube);
+  printCube(cube);
+
+  move_L(cube);
+  solveCross(cube);
+
+  move_L(cube);
+  solveCross(cube);
+
+  move_L(cube);
+  solveCross(cube);
+
+  move_L(cube);
+  solveCross(cube);
+
+  // Around up
+  move_L_prim(cube);
+  move_F(cube);
+  printCube(cube);
+
+  solveCross(cube);
+  move_U(cube);
+
+  solveCross(cube);
+  move_U(cube);
+
+  solveCross(cube);
+  move_U(cube);
+
+  solveCross(cube);
+  move_U(cube);
+
+  // Around down
+  move_F(cube);
+  move_F(cube);
+  printCube(cube);
+
+  solveCross(cube);
+  move_D(cube);
+
+  solveCross(cube);
+  move_D(cube);
+
+  solveCross(cube);
+  move_D(cube);
+
+  solveCross(cube);
+  move_D(cube);
 
   return 0;
 }

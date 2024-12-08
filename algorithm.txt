@@ -1,0 +1,5 @@
+SOLVING WHITE CROSS
+- move white edge to U layer by rorating done
+- move edge above correct center
+- check position of edge (white to top, white to front)
+- insert edge
