@@ -118,6 +118,8 @@ void move_D(unordered_map<char, vector<vector<char>>> &cube) {
   rotate_face(cube['D']);
 }
 
+
+
 int main() {
 
   unordered_map<char, vector<vector<char>>> cube = {
